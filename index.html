@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" ></link>
+    <title>Notebook</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="popup">
+        <form action="#">
+          <div class="inputField">
+            <label for="title" class="title">
+              <input type="text" id="title" name="title" placeholder="Title">
+            </label>
+          </div>
+          <div class="textInput">
+            <label for="userInput" class="userInput">
+              <textarea type="text" id="userInput" name="userInput" ></textarea>
+            </label>
+          </div>
+            <button class="add-note">Add Note</button>
+        </form>
+      </div>
+      <div class="notes-container">
+        
+      </div>
+      <footer class="add-icon" >
+        <button class="add-note-icon">
+          <span class="plus">+</span>
+        </button>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
