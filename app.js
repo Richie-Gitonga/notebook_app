@@ -1,28 +1,38 @@
-const addBox = document.querySelector('.add-note');
-const notesContainer = document.querySelector('.notes-container')
-const popup = document.querySelector('popup');
-const titleEl = document.querySelector('input')
+const addNote = document.querySelector('button');
+const titleEl = document.querySelector('input');
 const contentEl = document.querySelector('textarea')
-const addButton = document.querySelector('.add-note-icon')
 
-function showNotes() {
-    document.querySelectorAll('.note').forEach(note => note.remove());
-    showNotes.forEach((note, index)=> {
-        let divEl = `<div class="note">
-          <div class="note-header">
-            <h1>${note.title}</h1>
-            <span>
-              <img src="https://www.flaticon.com/free-icon/setting_2040504" alt="">
-            </span>
-          </div>
-          <div class="description">
-            <p>${note.description}</p>
-          </div>
-          <footer class="note-footer">
-            <span>${note.date}</span>
-          </footer>
-        </div>`;
-        addBox.insertAdjacentElement('afterbegin', divEl)
-    })
-    shownotes
-}
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+const notes = JSON.parse(localStorage.getItem('notes') || '[]')
+let isUpdate = false, updateId;
+
+
+addNote.addEventListener('click', (e) => {
+  console.log("clicked")
+  e.preventDefault()
+  let noteTitle = titleEl.value, 
+  noteContent = contentEl.value;
+  console.log(noteTitle, noteContent)
+  if(noteTitle || noteContent) {
+    let dateEl = new Date(),
+    month = months[dateEl.getMonth()],
+    day = dateEl.getDate(),
+    year = dateEl.getFullYear()
+
+    let noteInfo = {
+      title : noteTitle,
+      content : noteContent,
+      date: `${day} ${month}, ${year}`
+    }
+    console.log(noteInfo)
+  }
+  if(!isUpdate) {
+    notes.push(noteInfo);
+  } else {
+    isUpdate = false;
+    notes[updateId] = noteInfo;
+  }
+  localStorage.setItem('notes', JSON.stringify(notes));
+  closeIcon.click();
+  showNotes();
+})

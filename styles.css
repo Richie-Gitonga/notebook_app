@@ -9,13 +9,13 @@
     font-size: 100%;
 }
 body{
-    font: 20px Monospace, sans-serif;
+    font: 16px Monospace, sans-serif;
 }
 .container{
     width: 100%;
     max-width: 768px;
     height: 100vh;
-    margin: auto;
+    margin: 0 auto;
     background-color:var(--base-color);
 }
 .note{
@@ -54,15 +54,15 @@ body{
 .note-footer{
     position: relative;
 }
-
+.popup{
+    display: block;
+}
 form{
-    height: 60vh;
+    height: fit-content;
     width: 60%;
-    display: none;
-    max-width: 480px;
-    margin: 20vh auto;
+    max-width: 400px;
+    margin: 0 auto;
     background: rgb(211,211,211);
-    background: linear-gradient(to bottom right, rgba(211,211,211,1), rgba(94,113,106,1));
     z-index: 999;
 }
 .inputField{
@@ -81,45 +81,71 @@ input:focus, textarea:focus{
     outline: none;
 }
 textarea{
-    width: 100%;
+    width: 80%;
     height: 150px;
     padding: 12px 20px;
-    box-sizing: border-box;
+    margin-left: 10%;
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
-    font: 16px ;
+    font: 12px ;
     resize: none;
+    box-shadow: -1px 4px 5px 7px rgba(0,0,0,0.4);
+    -webkit-box-shadow: -1px 4px 5px 7px rgba(0,0,0,0.4);
+    -moz-box-shadow: -1px 4px 5px 7px rgba(0,0,0,0.4);
 
 }
 .add-note{
-    width: fit-content;
-    font: 16px roboto, sans-serif;
-    margin-top: 20px;
-    padding: 5px;
-    border-radius: 10px;
-    border: none;
-    position: relative;
-    left: 280px;
-    bottom: 2px;
-    background-color: teal;
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    margin: 10px;
+    color: #3c4043;
+    cursor: pointer;
+    font-size: 14px;
+    height: 36px;
+    line-height: 27px;
+    min-width: 54px;
+    padding: 0 6px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: pre;
 }
 
-footer .add-note-icon{
-    background-color: #A52A2A;
-    font-size: 60px;
-    color:black;
+.add-note:hover {
+  border-color: #dadce0;
+  box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+  color: #202124;
+}
+
+.add-note:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+footer .add-button{
+    background-color: var(--secondary-color);
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    position: absolute;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 .add-note-icon:hover{
     background-color: #9A2A2A;
-    transform: scale(1.2);
+    padding: 5px;
 }
 
+.plus{
+    font: 32px bolder;
+}
+.plus:hover{
+    font-weight: 900;
+    cursor: pointer;
+}
